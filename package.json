@@ -1,0 +1,11 @@
+{
+    "name": "roommates",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "dev": "cd roommates && npm run dev",
+      "build": "cd roommates && next build",
+      "start": "cd roommates && next start"
+    }
+  }
+  
