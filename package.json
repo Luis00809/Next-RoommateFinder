@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
       "dev": "cd roommates && npm run dev",
-      "build": "cd roommates && next build",
-      "start": "cd roommates && next start"
+      "build": "cd roommates && npm run build",
+      "start": "cd roommates && npm run start"
     }
   }
   
