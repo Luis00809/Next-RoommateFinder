@@ -1,0 +1,87 @@
+[
+    {
+      "bio": "I am a software engineer looking for a room to share. I enjoy hiking and reading in my free time.",
+      "budget": "1000",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 1
+    },
+    {
+      "bio": "I am a medical student who is looking for a room to share. I enjoy cooking and watching movies in my free time.",
+      "budget": "1200",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 2
+    },
+    {
+      "bio": "I am an art student who is looking for a room to share. I enjoy painting and traveling in my free time.",
+      "budget": "800",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 3
+    },
+    {
+      "bio": "I am a law student who is looking for a room to share. I enjoy reading law books and playing chess in my free time.",
+      "budget": "1500",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 4
+    },
+    {
+      "bio": "I am a university teacher who is looking for a room to share. I enjoy teaching and playing the piano in my free time.",
+      "budget": "1100",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 5
+    },
+    {
+      "bio": "I am a professor who is looking for a room to share. I enjoy researching and gardening in my free time.",
+      "budget": "1300",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 6
+    },
+    {
+      "bio": "I am a university librarian who is looking for a room to share. I enjoy reading and doing yoga in my free time.",
+      "budget": "900",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 7
+    },
+    {
+      "bio": "I am a university janitor who is looking for a room to share. I enjoy gardening and playing the guitar in my free time.",
+      "budget": "1400",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 8
+    },
+    {
+      "bio": "I am a university receptionist who is looking for a room to share. I enjoy painting and dancing in my free time.",
+      "budget": "1200",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 9
+    },
+    {
+      "bio": "I am a university counselor who is looking for a room to share. I enjoy traveling and playing the violin in my free time.",
+      "budget": "800",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 10
+    },
+    {
+      "bio": "I am a university registrar who is looking for a room to share. I enjoy reading and playing the flute in my free time.",
+      "budget": "1500",
+      "prefferedGender": "Male",
+      "smoke": false,
+      "roomate_id": 11
+    },
+    {
+      "bio": "I am a university advisor who is looking for a room to share. I enjoy teaching and playing the cello in my free time.",
+      "budget": "1100",
+      "prefferedGender": "Female",
+      "smoke": true,
+      "roomate_id": 12
+    }
+]
+  
