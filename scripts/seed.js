@@ -3,7 +3,7 @@ const {
     users,
     userForm,
     roomForm
-} = require('../app/database/placeholder-data');
+} = require('../app/lib/placeholder-data');
 
 
 // EACH FUNCTION DROPOS THE TABLES ONCE SCRIPT IS RAN NEED TO CHANGE WHEN IN PRODUCTION
@@ -106,7 +106,7 @@ async function seedRooms(client) {
         rent INT NOT NULL,
         smoking TEXT CHECK (smoking IN ('allowed', 'not allowed')),
         gender TEXT CHECK (gender IN ('male', 'female', 'other', 'no preference')),
-        roomId INT NOT NULL UNIQUE,
+        roomId INT NOT NULL,
         CONSTRAINT fk_rooms_user FOREIGN KEY(roomId) REFERENCES users(id) ON DELETE CASCADE
        );
        `;
