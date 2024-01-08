@@ -15,18 +15,17 @@ export async function fetchUsers() {
         
         const data = await sql<User>`
         SELECT 
-        users.id,
-        users.email,
-        users.firstName,
-        users.lastName,
-        users.gender
-        FROM users
-        JOIN users ON roomateForm.id = users.id
+            users.id,
+            users.email,
+            users.firstName,
+            users.lastName,
+            users.gender
+        FROM users;
         `;
         return data.rows;
 
     } catch (error) {
-        console.log('database error:',error);        
+        console.log('getting users error:',error);        
     }
     
 };
@@ -43,10 +42,10 @@ export async function getOneUser(id: string) {
             users.lastName,
             users.gender
             FROM users
-            WHERE user.id = ${id}
+            WHERE users.id = ${id}
         `
         return data.rows;
     } catch (error) {
-        console.log("database error", error)
+        console.log("getting a user error", error)
     }
 }

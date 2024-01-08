@@ -226,7 +226,7 @@ const roomForm = [
         rent: 1200,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 2
+        roomId: 1
       },
       {
         address: "789 Pine St, Anytown, USA",
