@@ -16,8 +16,8 @@ async function seedUsers (client) {
             DROP TABLE IF EXISTS users;
             CREATE TABLE IF NOT EXISTS users (
                 id SERIAL PRIMARY KEY,
-                firstName VARCHAR(255) NOT NULL,
-                lastName VARCHAR(255) NOT NULL,
+                firstname VARCHAR(255) NOT NULL,
+                lastname VARCHAR(255) NOT NULL,
                 email TEXT NOT NULL UNIQUE,
                 password TEXT NOT NULL,
                 gender TEXT CHECK (gender IN ('male', 'female', 'other')),
@@ -32,8 +32,8 @@ async function seedUsers (client) {
             users.map(async (user) => {
                 // const hashedPassword = await bcrypt.hash(user.password, 10);
                 return client.sql`
-                INSERT INTO users (firstName, lastName, email, password, gender, age)
-                VALUES ( ${user.firstName}, ${user.lastName}, ${user.email}, ${user.password}, ${user.gender}, ${user.age})
+                INSERT INTO users (firstname, lastname, email, password, gender, age)
+                VALUES ( ${user.firstname}, ${user.lastname}, ${user.email}, ${user.password}, ${user.gender}, ${user.age})
                 ON CONFLICT (id) DO NOTHING;
               `;
               }),
@@ -62,10 +62,10 @@ async function seedUserForm(client) {
             id SERIAL PRIMARY KEY,
             bio TEXT,
             budget INT NOT NULL,
-            preferredGender TEXT CHECK (preferredGender IN ('male', 'female', 'other', 'no preference')),
+            preferredgender TEXT CHECK (preferredgender IN ('male', 'female', 'other', 'no preference')),
             smokes TEXT CHECK (smokes IN ('no', 'yes')),
-            roommateId INT NOT NULL UNIQUE,
-            CONSTRAINT fk_roommateForms_user FOREIGN KEY(roommateId) REFERENCES users(id) ON DELETE CASCADE
+            roommateid INT NOT NULL UNIQUE,
+            CONSTRAINT fk_roommateForms_user FOREIGN KEY(roommateid) REFERENCES users(id) ON DELETE CASCADE
         );
        `;
 
@@ -76,8 +76,8 @@ async function seedUserForm(client) {
        const insertRoommateForms = await Promise.all(
         userForm.map(
             (roomateForms) => client.sql`
-            INSERT INTO roommateForms ( bio, budget, preferredGender, smokes, roommateId)
-            VALUES (${roomateForms.bio}, ${roomateForms.budget}, ${roomateForms.preferredGender}, ${roomateForms.smokes},${roomateForms.roommateId})
+            INSERT INTO roommateForms ( bio, budget, preferredgender, smokes, roommateid)
+            VALUES (${roomateForms.bio}, ${roomateForms.budget}, ${roomateForms.preferredgender}, ${roomateForms.smokes},${roomateForms.roommateid})
             ON CONFLICT (id) DO NOTHING;
           `,
           ),
@@ -102,12 +102,12 @@ async function seedRooms(client) {
         id SERIAL PRIMARY KEY,
         address text,
         description TEXT NOT NULL,
-        creditScore INT,
+        creditscore INT,
         rent INT NOT NULL,
         smoking TEXT CHECK (smoking IN ('allowed', 'not allowed')),
         gender TEXT CHECK (gender IN ('male', 'female', 'other', 'no preference')),
-        roomId INT NOT NULL,
-        CONSTRAINT fk_rooms_user FOREIGN KEY(roomId) REFERENCES users(id) ON DELETE CASCADE
+        roomid INT NOT NULL,
+        CONSTRAINT fk_rooms_user FOREIGN KEY(roomid) REFERENCES users(id) ON DELETE CASCADE
        );
        `;
 
@@ -116,8 +116,8 @@ async function seedRooms(client) {
         const insertedRooms = await Promise.all(
             roomForm.map(
                 (room) => client.sql`
-                INSERT INTO rooms ( address, description, creditScore, rent, smoking, gender, roomId)
-                VALUES  (${room.address}, ${room.description}, ${room.creditScore}, ${room.rent},${room.smoking}, ${room.gender}, ${room.roomId})
+                INSERT INTO rooms ( address, description, creditscore, rent, smoking, gender, roomid)
+                VALUES  (${room.address}, ${room.description}, ${room.creditscore}, ${room.rent},${room.smoking}, ${room.gender}, ${room.roomid})
                 ON CONFLICT (id) DO NOTHING;
                 `
             ),

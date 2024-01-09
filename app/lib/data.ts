@@ -71,7 +71,7 @@ export async function getOneRoom(id: number) {
         SELECT r.*, u.* FROM rooms r LEFT JOIN users u ON r.roomId = u.id WHERE r.id = ${id}
         `
         
-        return data;
+        return data.rows[0];
     } catch (error) {
         console.log('fetching one room error: ', error);
         
