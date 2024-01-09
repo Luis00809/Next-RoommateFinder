@@ -2,88 +2,88 @@ const users = [
     {
         email: "john.doe@example.com",
         password: "password1",
-        firstName: "John",
-        lastName: "Doe",
+        firstname: "John",
+        lastname: "Doe",
         gender: "male",
         age: 23
       },
       {
         email: "jane.doe@example.com",
         password: "password2",
-        firstName: "Jane",
-        lastName: "Doe",
+        firstname: "Jane",
+        lastname: "Doe",
         gender: 'female',
         age: 25
       },
       {
         email: "alice.smith@example.com",
         password: "password3",
-        firstName: "Alice",
-        lastName: "Smith",
+        firstname: "Alice",
+        lastname: "Smith",
         gender: 'female',
         age: 58
       },
       {
         email: "bob.johnson@example.com",
         password: "password4",
-        firstName: "Bob",
-        lastName: "Johnson",
+        firstname: "Bob",
+        lastname: "Johnson",
         gender: "male",
         age: 55
       },
       {
         email: "charlie.brown@example.com",
         password: "password5",
-        firstName: "Charlie",
-        lastName: "Brown",
+        firstname: "Charlie",
+        lastname: "Brown",
         gender: "male",
         age: 58
       },
       {
         email: "snoopy@example.com",
         password: "password6",
-        firstName: "Snoopy",
-        lastName: "The Dog",
+        firstname: "Snoopy",
+        lastname: "The Dog",
         gender: "male",
         age: 44
       },
       {
         email: "lucy@example.com",
         password: "password7",
-        firstName: "Lucy",
-        lastName: "Van Pelt",
+        firstname: "Lucy",
+        lastname: "Van Pelt",
         gender: 'female',
         age: 32
       },
       {
         email: "linus.vanpelt@example.com",
         password: "password8",
-        firstName: "Linus",
-        lastName: "Van Pelt",
+        firstname: "Linus",
+        lastname: "Van Pelt",
         gender: "male",
         age: 21
       },
       {
         email: "peppermintpatty@example.com",
         password: "password9",
-        firstName: "Peppermint Patty",
-        lastName: "",
+        firstname: "Peppermint Patty",
+        lastname: "",
         gender: 'female',
         age: 20
       },
       {
         email: "marcie@example.com",
         password: "password10",
-        firstName: "Marcie",
-        lastName: "Rodd",
+        firstname: "Marcie",
+        lastname: "Rodd",
         gender: 'female',
         age: 18
       },
       {
         email: "fred@example.com",
         password: "password11",
-        firstName: "Fred",
-        lastName: "Jones",
+        firstname: "Fred",
+        lastname: "Jones",
         gender: "male",
         age: 19
 
@@ -91,32 +91,32 @@ const users = [
       {
         email: "velma@example.com",
         password: "password12",
-        firstName: "Velma",
-        lastName: "Dinkley",
+        firstname: "Velma",
+        lastname: "Dinkley",
         gender: 'female',
         age: 19
       },
       {
         email: "daphne@example.com",
         password: "password13",
-        firstName: "Daphne",
-        lastName: "Blake",
+        firstname: "Daphne",
+        lastname: "Blake",
         gender: 'female',
         age: 60
       },
       {
         email: "shaggy@example.com",
         password: "password14",
-        firstName: "Shaggy",
-        lastName: "Smith",
+        firstname: "Shaggy",
+        lastname: "Smith",
         gender: "male",
         age: 49
       },
       {
         email: "scooby@example.com",
         password: "password15",
-        firstName: "Scooby",
-        lastName: "Doo",
+        firstname: "Scooby",
+        lastname: "Doo",
         gender: "male",
         age: 74
       }
@@ -126,86 +126,86 @@ const userForm = [
     {
         bio: "I am a software engineer looking for a room to share. I enjoy hiking and reading in my free time.",
         budget: 1000,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: 'no',
-        roommateId: 1
+        roommateid: 1
       },
       {
         bio: "I am a medical student who is looking for a room to share. I enjoy cooking and watching movies in my free time.",
         budget: 1200,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 2
+        roommateid: 2
       },
       {
         bio: "I am an art student who is looking for a room to share. I enjoy painting and traveling in my free time.",
         budget: 800,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: "no",
-        roommateId: 3
+        roommateid: 3
       },
       {
         bio: "I am a law student who is looking for a room to share. I enjoy reading law books and playing chess in my free time.",
         budget: 1500,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 4
+        roommateid: 4
       },
       {
         bio: "I am a university teacher who is looking for a room to share. I enjoy teaching and playing the piano in my free time.",
         budget: 1100,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: "no",
-        roommateId: 5
+        roommateid: 5
       },
       {
         bio: "I am a professor who is looking for a room to share. I enjoy researching and gardening in my free time.",
         budget: 1300,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 6
+        roommateid: 6
       },
       {
         bio: "I am a university librarian who is looking for a room to share. I enjoy reading and doing yoga in my free time.",
         budget: 900,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: "no",
-        roommateId: 7
+        roommateid: 7
       },
       {
         bio: "I am a university janitor who is looking for a room to share. I enjoy gardening and playing the guitar in my free time.",
         budget: 1400,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 8
+        roommateid: 8
       },
       {
         bio: "I am a university receptionist who is looking for a room to share. I enjoy painting and dancing in my free time.",
         budget: 1200,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: "no",
-        roommateId: 9
+        roommateid: 9
       },
       {
         bio: "I am a university counselor who is looking for a room to share. I enjoy traveling and playing the violin in my free time.",
         budget: 800,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 10
+        roommateid: 10
       },
       {
         bio: "I am a university registrar who is looking for a room to share. I enjoy reading and playing the flute in my free time.",
         budget: 1500,
-        preferredGender: "male",
+        preferredgender: "male",
         smokes: "no",
-        roommateId: 11
+        roommateid: 11
       },
       {
         bio: "I am a university advisor who is looking for a room to share. I enjoy teaching and playing the cello in my free time.",
         budget: 1100,
-        preferredGender: 'female',
+        preferredgender: 'female',
         smokes: "yes",
-        roommateId: 12
+        roommateid: 12
       }
 ]
 
@@ -213,101 +213,101 @@ const roomForm = [
     {
         address: "123 Main St, Anytown, USA",
         description: "A spacious room with a queen bed and a private bathroom.",
-        creditScore: 750,
+        creditscore: 750,
         rent: 1000,
         smoking: "not allowed",
         gender: "male",
-        roomId: 1
+        roomid: 1
       },
       {
         address: "456 Oak St, Anytown, USA",
         description: "A cozy room with a double bed and a shared bathroom.",
-        creditScore: 600,
+        creditscore: 600,
         rent: 1200,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 1
+        roomid: 1
       },
       {
         address: "789 Pine St, Anytown, USA",
         description: "A room with a single bed and a shared bathroom.",
-        creditScore: 500,
+        creditscore: 500,
         rent: 800,
         smoking: "not allowed",
         gender: "male",
-        roomId: 3
+        roomid: 3
       },
       {
         address: "321 Maple St, Anytown, USA",
         description: "A luxurious room with a king bed and a private bathroom.",
-        creditScore: 800,
+        creditscore: 800,
         rent: 1500,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 4
+        roomid: 4
       },
       {
         address: "654 Willow St, Anytown, USA",
         description: "A room with a double bed and a shared bathroom.",
-        creditScore: 700,
+        creditscore: 700,
         rent: 1100,
         smoking: "not allowed",
         gender: "male",
-        roomId: 5
+        roomid: 5
       },
       {
         address: "987 Birch St, Anytown, USA",
         description: "A spacious room with a queen bed and a private bathroom.",
-        creditScore: 650,
+        creditscore: 650,
         rent: 1300,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 6
+        roomid: 6
       },
       {
         address: "147 Poplar St, Anytown, USA",
         description: "A room with a single bed and a shared bathroom.",
-        creditScore: 550,
+        creditscore: 550,
         rent: 900,
         smoking: "not allowed",
         gender: "male",
-        roomId: 7
+        roomid: 7
       },
       {
         address: "258 Cedar St, Anytown, USA",
         description: "A luxurious room with a king bed and a private bathroom.",
-       creditScore: 750,
+       creditscore: 750,
         rent: 1400,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 8
+        roomid: 8
       },
       {
         address: "369 Aspen St, Anytown, USA",
         description: "A room with a double bed and a shared bathroom.",
-       creditScore: 600,
+       creditscore: 600,
         rent: 1200,
         smoking: "not allowed",
         gender: "male",
-        roomId: 9
+        roomid: 9
       },
       {
         address: "581 Chestnut St, Anytown, USA",
         description: "A spacious room with a queen bed and a private bathroom.",
-       creditScore: 500,
+       creditscore: 500,
         rent: 800,
         smoking: 'allowed',
         gender: 'female',
-        roomId: 10
+        roomid: 10
       },
       {
         address: "702 Hemlock St, Anytown, USA",
         description: "A room with a single bed and a shared bathroom.",
-       creditScore: 700,
+       creditscore: 700,
         rent: 1100,
         smoking: "not allowed",
         gender: "male",
-        roomId: 11
+        roomid: 11
       }
 ]
 
