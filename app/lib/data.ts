@@ -17,7 +17,7 @@ export async function fetchUsers() {
         SELECT 
             users.id,
             users.email,
-            users.firstName,
+            users.firstname,
             users.lastName,
             users.gender
         FROM users;
@@ -38,7 +38,7 @@ export async function getOneUser(id: number) {
             SELECT 
             users.id,
             users.email,
-            users.firstName,
+            users.firstname,
             users.lastName,
             users.gender
             FROM users
@@ -85,13 +85,13 @@ export async function fetchRoommates() {
             SELECT 
                 users.id,
                 users.email,
-                users.firstName,
+                users.firstname,
                 users.lastName,
                 users.gender,
                 users.age,
                 roommateforms.*
             FROM users
-            JOIN roommateforms on roommateforms.roommateId = users.id
+            JOIN roommateforms on roommateforms.roommateid = users.id
         `
         return data.rows;
     } catch (error) {
@@ -107,15 +107,17 @@ export async function getOneRoommate(id: number) {
         SELECT 
             users.id,
             users.email,
-            users.firstName,
-            users.lastName,
+            users.firstname,
+            users.lastname,
             users.gender,
             users.age,
             roommateforms.*
         FROM USERS
-        JOIN roommateforms on roommateforms.roommateId = users.id
+        JOIN roommateforms on roommateforms.roommateid = users.id
         WHERE users.id = ${id}
         `
+        return data.rows[0];
+
     } catch (error) {
         console.log("getting one roommate error: ", error);
         

@@ -1,0 +1,19 @@
+import { fetchRoommates } from "../lib/data";
+import UserCard from "../Components/Cards/RoommateCard";
+
+export default async function RoommatesPage() {
+    const users = await fetchRoommates();
+    console.log(users)
+    return (
+        <>
+            <h4>Roommates:</h4> 
+            { users?.map(user => (
+                <UserCard key={user.id} 
+                    firstN={user.firstname} lastN={user.lastname}
+                    gender={user.gender} age={user.age}
+                    id={user.id} email={user.email}
+                />
+            ))} 
+        </>
+    )
+}
