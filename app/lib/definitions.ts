@@ -28,3 +28,5 @@ export type Room = {
     gender: 'male' | 'female' | 'other' | 'no preference';
     roomid: number;
 }
+
+export type UserWithRoommateForm = User & RoommateForm;

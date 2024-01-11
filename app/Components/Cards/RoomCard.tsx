@@ -38,7 +38,7 @@ export default function RoomCard ({
                     <p>room: {roomId}</p>
 
                     <div className="card-actions justify-end">
-                    <Link href={`/rooms/${id}`}><button className="btn btn-primary">Buy Now</button></Link>
+                    <Link href={`/rooms/${id}`}><button className="btn btn-primary">Visit Room</button></Link>
                     </div>
                 </div>
             </div>
