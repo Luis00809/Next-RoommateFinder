@@ -3,7 +3,6 @@ import UserCard from "../Components/Cards/UserCard";
 
 export default async function RoommatesPage() {
     const users = await fetchRoommates();
-    console.log(users)
     return (
         <>
             <h4>Roommates:</h4> 

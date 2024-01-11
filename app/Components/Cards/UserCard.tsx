@@ -31,7 +31,7 @@ export default function UserCard({
                     <p>{id}</p>
 
                     <div className="card-actions justify-end">
-                    <Link href={`/roommates/${id}`}><button className="btn btn-primary">View</button></Link>
+                    <Link href={`/roommates/${id}`}><button className="btn btn-primary">View Roomie</button></Link>
                     </div>
                 </div>
             </div> 

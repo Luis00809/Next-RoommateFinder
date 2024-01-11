@@ -5,19 +5,21 @@ import { getOneRoommate } from "@/app/lib/data";
 
 export default async function OneRoommate({params}: {params: { id: number}}) {
     const id = params.id
-    const user = await getOneRoommate(id);
+    const userWithRoommateForm = await getOneRoommate(id);
     
 
     return (
         <>
-            <div>
-            {user && <UserCard key={user.id} 
-                    firstN={user.firstname} lastN={user.lastname}
-                    gender={user.gender} age={user.age}
-                    id={user.id} email={user.email} />}
-            </div>
-           { user && <RoommateCard id={user.formid} budget={user.budget} bio={user.bio} preferredGender={user.preferredgender} smoke={user.smokes} />}
-        </>
-    )
+             <div>
+               {userWithRoommateForm && <UserCard key={userWithRoommateForm.id} 
+                  firstN={userWithRoommateForm.firstname} lastN={userWithRoommateForm.lastname}
+                  gender={userWithRoommateForm.gender} age={userWithRoommateForm.age}
+                  id={userWithRoommateForm.id} email={userWithRoommateForm.email} />}
+           </div>
+           <div>
+           { userWithRoommateForm && <RoommateCard key={userWithRoommateForm.roommateid} id={userWithRoommateForm.roommateid} budget={userWithRoommateForm.budget} bio={userWithRoommateForm.bio} preferredGender={userWithRoommateForm.preferredgender} smoke={userWithRoommateForm.smokes} />}
+           </div>
+       </>
+   )
     
 }

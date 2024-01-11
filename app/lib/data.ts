@@ -4,7 +4,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 import {
     User,
     RoommateForm,
-    Room
+    Room,
+    UserWithRoommateForm
 } from './definitions';
 
 // fetch all Users 
@@ -101,9 +102,9 @@ export async function fetchRoommates() {
 };
 
 // get one roommate
-export async function getOneRoommate(id: number) {
+export async function getOneRoommate(id: number): Promise<UserWithRoommateForm | null> {
     try {
-        const data = await sql<User>`
+        const data = await sql<any>`
         SELECT 
             users.id,
             users.email,
@@ -117,13 +118,14 @@ export async function getOneRoommate(id: number) {
         JOIN roommateforms on roommateforms.roommateid = users.id
         WHERE users.id = ${id}
         `
-        return data.rows[0];
-
+        return data.rows[0] as UserWithRoommateForm || null;
+ 
     } catch (error) {
         console.log("getting one roommate error: ", error);
+        return null;
         
     }
-};
+ };
 
 
 
