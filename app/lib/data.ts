@@ -111,6 +111,7 @@ export async function getOneRoommate(id: number) {
             users.lastname,
             users.gender,
             users.age,
+            roommateforms.id AS formid,
             roommateforms.*
         FROM USERS
         JOIN roommateforms on roommateforms.roommateid = users.id
