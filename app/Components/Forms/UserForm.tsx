@@ -4,7 +4,7 @@ import Link from "next/link";
 import { createUserForm } from "@/app/lib/actions";
 import { useFormState } from 'react-dom';
 
-export default function UserForm({ users }: { users: User[]}){
+export default function UserForm(){
     const initialState = { message: null, errors: {} }
     const [state, dispatch] = useFormState(createUserForm, initialState);
     console.log(state);
