@@ -95,7 +95,7 @@ export async function updateUserForm(
         };
       }
 
-    const { email, password, firstName, lastName, gender, age } = validatedFields.data;
+    const { email, password, firstname, lastname, gender, age } = validatedFields.data;
     
     try {
         await sql`
@@ -103,8 +103,8 @@ export async function updateUserForm(
             SET 
             email = ${email},
             password = ${password},
-            firstname = ${firstName},
-            lastname = ${lastName},
+            firstname = ${firstname},
+            lastname = ${lastname},
             gender = ${gender},
             age = ${age}
             WHERE id = ${id}
