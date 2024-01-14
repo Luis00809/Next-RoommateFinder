@@ -108,7 +108,7 @@ export async function updateRoomForm(
     try {
         await sql`
         UPDATE rooms
-        SET address = ${address}, description = ${description}, creditscore = ${creditScore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}, roomid = ${roomId}
+        SET address = ${address}, description = ${description}, creditscore = ${creditscore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}, roomid = ${roomid}
         WHERE id = ${id}
         `
     } catch (error) {
