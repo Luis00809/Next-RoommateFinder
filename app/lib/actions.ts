@@ -12,12 +12,13 @@ const UserFormSchema = z.object({
         invalid_type_error: "Please provide a proper email"
     }),
     password: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
+    firstname: z.string(),
+    lastname: z.string(),
     gender: z.enum(['male', 'female', 'other'],{
         invalid_type_error: 'Please select an option'
     }),
-    age: z.number(),
+    age: z.coerce.number()
+    .gte(18,{ message: "must be at least 18."})
 })
 
 const CreateUserForm = UserFormSchema.omit({ id: true});
@@ -27,8 +28,8 @@ export type UserState = {
     errors?: {
       email?: string[];
       password?: string[];
-      firstName?: string[];
-      lastName?: string[];
+      firstname?: string[];
+      lastname?: string[];
       gender?: string[];
       age?: string[];
 
@@ -40,8 +41,8 @@ export async function createUserForm( prevState: UserState, formData: FormData) 
     const validatedFields = CreateUserForm.safeParse({
         email: formData.get('email'),
         password: formData.get('password'),
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
+        firstname: formData.get('firstname'),
+        lastname: formData.get('lastname'),
         gender: formData.get('gender'),
         age: formData.get('age'),
     });
@@ -53,18 +54,23 @@ export async function createUserForm( prevState: UserState, formData: FormData) 
         }
     }
 
-    const { email, password, firstName, lastName, gender, age} = validatedFields.data;
+    const { email, password, firstname, lastname, gender, age} = validatedFields.data;
 
     // if receive an error possibly might be bc string literals aren't wrapped in single quotes for strings
 
     try {
         await sql`
         INSERT INTO users (email, password, firstname, lastname, gender, age)
-        VALUES (${email}, ${password}, ${firstName}, ${lastName}, ${gender}, ${age})
+        VALUES (${email}, ${password}, ${firstname}, ${lastname}, ${gender}, ${age})
         `
     } catch (error) {
         console.log("error creating a user: ", error);
         
+    }
+
+    return {
+        ...prevState,
+        message: 'User created successfully'
     }
 }
 
@@ -142,7 +148,6 @@ const UpdateRoommateForm = RoommateFormSchema.omit({ id: true});
 export type RoommateState = {
     errors?: {
       bio?: string[];
-      password?: string[];
       budget?: string[];
       preferredGender?: string[];
       smokes?: string[];
