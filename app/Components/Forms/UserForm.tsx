@@ -1,7 +1,7 @@
 'use client';
 import { User } from "@/app/lib/definitions";
 import Link from "next/link";
-import { createUserForm } from "@/app/lib/actions";
+import { createUserForm } from '../../lib/actions/UserActions/actions'
 import { useFormState } from 'react-dom';
 
 export default function UserForm(){
