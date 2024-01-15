@@ -80,7 +80,7 @@ export default function RoomForm(){
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
-                        <label htmlFor="gender" className="form-control w-full max-w-xs">
+                        <label htmlFor="roomid" className="form-control w-full max-w-xs">
                         roomID: 
                         </label>
                         <input type='number' id='roomid' name='roomid' className="input input-bordered w-full max-w-xs" />

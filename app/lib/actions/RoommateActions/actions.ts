@@ -9,10 +9,10 @@ import { redirect } from 'next/navigation';
 const RoommateFormSchema = z.object({
     id: z.number(),
     bio: z.string(),
-    budget: z.number().gt(0, { message: 'Please enter an amount greater that 0.'}),
-    preferredGender: z.enum(['male', 'female', 'other', 'no preference']),
+    budget: z.coerce.number().gt(0, { message: 'Please enter an amount greater that 0.'}),
+    preferredgender: z.enum(['male', 'female', 'other', 'no preference']),
     smokes: z.enum(['no', 'yes']),
-    roommateId: z.number(),
+    roommateid: z.coerce.number(),
 });
 
 const CreateRoommateForm = RoommateFormSchema.omit({ id: true});
@@ -22,9 +22,9 @@ export type RoommateState = {
     errors?: {
       bio?: string[];
       budget?: string[];
-      preferredGender?: string[];
+      preferredgender?: string[];
       smokes?: string[];
-      roommateId?: string[];
+      roommateid?: string[];
 
     };
     message?: string | null;
@@ -34,9 +34,9 @@ export async function createRoommateForm( prevState: RoommateState, formData: Fo
     const validatedFields = CreateRoommateForm.safeParse({
         bio: formData.get('bio'),
         budget: formData.get('budget'),
-        preferredGender: formData.get('preferredgender'),
-        smokes: formData.get('smoked'),
-        roommateId: formData.get('roommateid')
+        preferredgender: formData.get('preferredgender'),
+        smokes: formData.get('smokes'),
+        roommateid: formData.get('roommateid')
     });
 
     if (!validatedFields.success) {
@@ -46,18 +46,21 @@ export async function createRoommateForm( prevState: RoommateState, formData: Fo
           };
     };
 
-    const { bio, budget, preferredGender, smokes, roommateId } = validatedFields.data;
+    const { bio, budget, preferredgender, smokes, roommateid } = validatedFields.data;
 
     try {
         await sql`
         INSERT INTO roommateforms (bio, budget, preferredgender, smokes, roommateid)
-        VALUES (${bio}, ${budget}, ${preferredGender}, ${smokes}, ${roommateId})
+        VALUES (${bio}, ${budget}, ${preferredgender}, ${smokes}, ${roommateid})
         `
     } catch (error) {
         console.log("error creating roommate form: ", error);
         
     }
-
+    return {
+        ...prevState,
+        message: 'Form created successfully'
+    }
     // revalidatePath('');
     // redirect('');
 }
@@ -70,9 +73,9 @@ export async function updateRoommateForm(
     const validatedFields = UpdateRoommateForm.safeParse({
         bio: formData.get('bio'),
         budget: formData.get('budget'),
-        preferredGender: formData.get('preferredgender'),
+        preferredgender: formData.get('preferredgender'),
         smokes: formData.get('smoked'),
-        roommateId: formData.get('roommateid')
+        roommateid: formData.get('roommateid')
     })
 
     if (!validatedFields.success) {
@@ -82,12 +85,12 @@ export async function updateRoommateForm(
           };
     };
 
-    const { bio, budget, preferredGender, smokes, roommateId } = validatedFields.data;
+    const { bio, budget, preferredgender, smokes, roommateid } = validatedFields.data;
 
     try {
         await sql`
         UPDATE roommateforms
-        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredGender}, smokes = ${smokes}, roommateid = ${roommateId}
+        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredgender}, smokes = ${smokes}, roommateid = ${roommateid}
         WHERE id = ${id}
         `
     } catch (error) {
