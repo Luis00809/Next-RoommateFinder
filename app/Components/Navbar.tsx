@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx'
+import { signOut } from '@/auth';
+
 
 const links = [
     {name: 'Dasboard', href: '/dashboard'},
@@ -40,7 +42,6 @@ export default function Navbar() {
                     </Link>
                     );
                 })}
-
                 {/* <li>
                     <details>
                     <summary>
@@ -53,7 +54,11 @@ export default function Navbar() {
                     </details>
                 </li> */}
                 </ul>
+
+                
+                
             </div>
+             
         </div>
     
     </>

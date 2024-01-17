@@ -83,7 +83,7 @@ export default function RoomForm(){
                         <label htmlFor="roomid" className="form-control w-full max-w-xs">
                         roomID: 
                         </label>
-                        <input type='number' id='roomid' name='roomid' className="input input-bordered w-full max-w-xs" />
+                        <input type='text' id='roomid' name='roomid' className="input input-bordered w-full max-w-xs" />
                         <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Create</button>
 
                         <div>

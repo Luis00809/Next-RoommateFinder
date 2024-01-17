@@ -7,12 +7,12 @@ import { redirect } from 'next/navigation';
 
 // roommateform type validation
 const RoommateFormSchema = z.object({
-    id: z.number(),
+    id: z.string(),
     bio: z.string(),
     budget: z.coerce.number().gt(0, { message: 'Please enter an amount greater that 0.'}),
     preferredgender: z.enum(['male', 'female', 'other', 'no preference']),
     smokes: z.enum(['no', 'yes']),
-    roommateid: z.coerce.number(),
+    roommateid: z.string(),
 });
 
 const CreateRoommateForm = RoommateFormSchema.omit({ id: true});
@@ -103,7 +103,7 @@ export async function updateRoommateForm(
 
 }
 
-export async function deleteRoommateForm(id: number) {
+export async function deleteRoommateForm(id:string) {
     try {
         await sql`DELETE FROM roommateforms WHERE id = ${id}`
         // revalidatePath('')

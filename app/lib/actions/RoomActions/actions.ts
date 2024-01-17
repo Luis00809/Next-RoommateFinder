@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 
 // room type validation
 const RoomSchema = z.object({
-    id: z.number(),
+    id: z.string(),
     address: z.string({
         invalid_type_error: 'Please Provide an address.'
     }),
@@ -25,7 +25,7 @@ const RoomSchema = z.object({
     gender: z.enum(['male', 'female', 'other', 'no preference'], {
         invalid_type_error: 'please select an option'
     }),
-    roomid: z.coerce.number()
+    roomid: z.string()
 });
 
 const CreateRoom = RoomSchema.omit({ id: true });
@@ -82,7 +82,7 @@ export async function createRoomForm(prevState: RoomState, formData: FormData) {
 }
 
 export async function updateRoomForm(
-    id: number,
+    id: string,
     prevState: RoomState,
     formData: FormData,
 ) {
@@ -117,7 +117,7 @@ export async function updateRoomForm(
     }
 }
 
-export async function deleteRoomForm(id: number) {
+export async function deleteRoomForm(id: string) {
     try {
         await sql`DELETE FROM room WHERE id = ${id}`;
         // revalidatePath('')

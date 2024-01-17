@@ -65,7 +65,7 @@ export default function RoommateForm(){
                         <label htmlFor="roommateid" className="form-control w-full max-w-xs">
                         roommateID: 
                         </label>
-                        <input type='number' id='roommateid' name='roommateid' className="input input-bordered w-full max-w-xs" />
+                        <input type='text' id='roommateid' name='roommateid' className="input input-bordered w-full max-w-xs" />
                         <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Create</button>
 
                         <div>

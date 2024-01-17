@@ -1,5 +1,6 @@
 const users = [
     {
+        id: 'fa44ee1b-d48f-4f04-83e1-4aea6fe4d004',
         email: "john.doe@example.com",
         password: "password1",
         firstname: "John",
@@ -8,6 +9,7 @@ const users = [
         age: 23
       },
       {
+        id: '7c7043bc-328c-45f9-8bba-8979b82da41f',
         email: "jane.doe@example.com",
         password: "password2",
         firstname: "Jane",
@@ -16,6 +18,7 @@ const users = [
         age: 25
       },
       {
+        id: '797e31a2-52a4-487f-b8a7-2967fd1d6a42',
         email: "alice.smith@example.com",
         password: "password3",
         firstname: "Alice",
@@ -24,6 +27,7 @@ const users = [
         age: 58
       },
       {
+        id: 'a39a19dc-ec97-4f85-8479-b09c14b2dc96',
         email: "bob.johnson@example.com",
         password: "password4",
         firstname: "Bob",
@@ -32,6 +36,7 @@ const users = [
         age: 55
       },
       {
+        id: 'e6c31ae4-92ba-4b83-88c8-db8d056bb8ff',
         email: "charlie.brown@example.com",
         password: "password5",
         firstname: "Charlie",
@@ -40,6 +45,7 @@ const users = [
         age: 58
       },
       {
+        id: 'b5ab2ff6-004c-459c-991c-142d63382ead',
         email: "snoopy@example.com",
         password: "password6",
         firstname: "Snoopy",
@@ -48,6 +54,7 @@ const users = [
         age: 44
       },
       {
+        id: '41659d6f-2b66-40db-9234-6e8121177e26',
         email: "lucy@example.com",
         password: "password7",
         firstname: "Lucy",
@@ -56,6 +63,7 @@ const users = [
         age: 32
       },
       {
+        id: '77d1dacc-e391-4fc9-af69-271939fe6ead',
         email: "linus.vanpelt@example.com",
         password: "password8",
         firstname: "Linus",
@@ -64,6 +72,7 @@ const users = [
         age: 21
       },
       {
+        id: 'b863428e-3616-4f91-8c0e-8aa31f07ed32',
         email: "peppermintpatty@example.com",
         password: "password9",
         firstname: "Peppermint Patty",
@@ -72,6 +81,7 @@ const users = [
         age: 20
       },
       {
+        id: '10086f9b-a174-4892-b94d-5fab06e8338b',
         email: "marcie@example.com",
         password: "password10",
         firstname: "Marcie",
@@ -80,6 +90,7 @@ const users = [
         age: 18
       },
       {
+        id: '98599198-737a-4512-ab7a-69235c978efa',
         email: "fred@example.com",
         password: "password11",
         firstname: "Fred",
@@ -89,6 +100,7 @@ const users = [
 
       },
       {
+        id: 'b2506023-e322-4c3d-b54c-f300a03ee21d',
         email: "velma@example.com",
         password: "password12",
         firstname: "Velma",
@@ -97,6 +109,7 @@ const users = [
         age: 19
       },
       {
+        id: '7db2f04d-9d58-4010-b793-6b17ce5b5e47',
         email: "daphne@example.com",
         password: "password13",
         firstname: "Daphne",
@@ -105,6 +118,7 @@ const users = [
         age: 60
       },
       {
+        id: '5bd01f5b-0398-44f2-8509-23b77ed90c5e',
         email: "shaggy@example.com",
         password: "password14",
         firstname: "Shaggy",
@@ -113,6 +127,7 @@ const users = [
         age: 49
       },
       {
+        id: '09b21bb1-c632-449c-b81a-40808370c6bf',
         email: "scooby@example.com",
         password: "password15",
         firstname: "Scooby",
@@ -128,84 +143,85 @@ const userForm = [
         budget: 1000,
         preferredgender: "male",
         smokes: 'no',
-        roommateid: 1
+        roommateid: 'fa44ee1b-d48f-4f04-83e1-4aea6fe4d004'
       },
       {
+        
         bio: "I am a medical student who is looking for a room to share. I enjoy cooking and watching movies in my free time.",
         budget: 1200,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 2
+        roommateid: '7c7043bc-328c-45f9-8bba-8979b82da41f'
       },
       {
         bio: "I am an art student who is looking for a room to share. I enjoy painting and traveling in my free time.",
         budget: 800,
         preferredgender: "male",
         smokes: "no",
-        roommateid: 3
+        roommateid: '797e31a2-52a4-487f-b8a7-2967fd1d6a42'
       },
       {
         bio: "I am a law student who is looking for a room to share. I enjoy reading law books and playing chess in my free time.",
         budget: 1500,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 4
+        roommateid: 'a39a19dc-ec97-4f85-8479-b09c14b2dc96'
       },
       {
         bio: "I am a university teacher who is looking for a room to share. I enjoy teaching and playing the piano in my free time.",
         budget: 1100,
         preferredgender: "male",
         smokes: "no",
-        roommateid: 5
+        roommateid: 'e6c31ae4-92ba-4b83-88c8-db8d056bb8ff'
       },
       {
         bio: "I am a professor who is looking for a room to share. I enjoy researching and gardening in my free time.",
         budget: 1300,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 6
+        roommateid: 'b5ab2ff6-004c-459c-991c-142d63382ead'
       },
       {
         bio: "I am a university librarian who is looking for a room to share. I enjoy reading and doing yoga in my free time.",
         budget: 900,
         preferredgender: "male",
         smokes: "no",
-        roommateid: 7
+        roommateid: '41659d6f-2b66-40db-9234-6e8121177e26'
       },
       {
         bio: "I am a university janitor who is looking for a room to share. I enjoy gardening and playing the guitar in my free time.",
         budget: 1400,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 8
+        roommateid: '77d1dacc-e391-4fc9-af69-271939fe6ead'
       },
       {
         bio: "I am a university receptionist who is looking for a room to share. I enjoy painting and dancing in my free time.",
         budget: 1200,
         preferredgender: "male",
         smokes: "no",
-        roommateid: 9
+        roommateid: 'b863428e-3616-4f91-8c0e-8aa31f07ed32'
       },
       {
         bio: "I am a university counselor who is looking for a room to share. I enjoy traveling and playing the violin in my free time.",
         budget: 800,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 10
+        roommateid: '10086f9b-a174-4892-b94d-5fab06e8338b'
       },
       {
         bio: "I am a university registrar who is looking for a room to share. I enjoy reading and playing the flute in my free time.",
         budget: 1500,
         preferredgender: "male",
         smokes: "no",
-        roommateid: 11
+        roommateid: '98599198-737a-4512-ab7a-69235c978efa'
       },
       {
         bio: "I am a university advisor who is looking for a room to share. I enjoy teaching and playing the cello in my free time.",
         budget: 1100,
         preferredgender: 'female',
         smokes: "yes",
-        roommateid: 12
+        roommateid: 'b2506023-e322-4c3d-b54c-f300a03ee21d'
       }
 ]
 
@@ -217,7 +233,7 @@ const roomForm = [
         rent: 1000,
         smoking: "not allowed",
         gender: "male",
-        roomid: 1
+        roomid: 'fa44ee1b-d48f-4f04-83e1-4aea6fe4d004'
       },
       {
         address: "456 Oak St, Anytown, USA",
@@ -226,7 +242,7 @@ const roomForm = [
         rent: 1200,
         smoking: 'allowed',
         gender: 'female',
-        roomid: 1
+        roomid: 'fa44ee1b-d48f-4f04-83e1-4aea6fe4d004'
       },
       {
         address: "789 Pine St, Anytown, USA",
@@ -235,7 +251,7 @@ const roomForm = [
         rent: 800,
         smoking: "not allowed",
         gender: "male",
-        roomid: 3
+        roomid: '797e31a2-52a4-487f-b8a7-2967fd1d6a42'
       },
       {
         address: "321 Maple St, Anytown, USA",
@@ -244,7 +260,7 @@ const roomForm = [
         rent: 1500,
         smoking: 'allowed',
         gender: 'female',
-        roomid: 4
+        roomid: 'a39a19dc-ec97-4f85-8479-b09c14b2dc96'
       },
       {
         address: "654 Willow St, Anytown, USA",
@@ -253,7 +269,7 @@ const roomForm = [
         rent: 1100,
         smoking: "not allowed",
         gender: "male",
-        roomid: 5
+        roomid: 'e6c31ae4-92ba-4b83-88c8-db8d056bb8ff'
       },
       {
         address: "987 Birch St, Anytown, USA",
@@ -262,7 +278,7 @@ const roomForm = [
         rent: 1300,
         smoking: 'allowed',
         gender: 'female',
-        roomid: 6
+        roomid: 'b5ab2ff6-004c-459c-991c-142d63382ead'
       },
       {
         address: "147 Poplar St, Anytown, USA",
@@ -271,7 +287,7 @@ const roomForm = [
         rent: 900,
         smoking: "not allowed",
         gender: "male",
-        roomid: 7
+        roomid: '41659d6f-2b66-40db-9234-6e8121177e26'
       },
       {
         address: "258 Cedar St, Anytown, USA",
@@ -280,7 +296,7 @@ const roomForm = [
         rent: 1400,
         smoking: 'allowed',
         gender: 'female',
-        roomid: 8
+        roomid: '77d1dacc-e391-4fc9-af69-271939fe6ead'
       },
       {
         address: "369 Aspen St, Anytown, USA",
@@ -289,7 +305,7 @@ const roomForm = [
         rent: 1200,
         smoking: "not allowed",
         gender: "male",
-        roomid: 9
+        roomid: 'b863428e-3616-4f91-8c0e-8aa31f07ed32'
       },
       {
         address: "581 Chestnut St, Anytown, USA",
@@ -298,7 +314,7 @@ const roomForm = [
         rent: 800,
         smoking: 'allowed',
         gender: 'female',
-        roomid: 10
+        roomid: '10086f9b-a174-4892-b94d-5fab06e8338b'
       },
       {
         address: "702 Hemlock St, Anytown, USA",
@@ -307,7 +323,7 @@ const roomForm = [
         rent: 1100,
         smoking: "not allowed",
         gender: "male",
-        roomid: 11
+        roomid: '98599198-737a-4512-ab7a-69235c978efa'
       }
 ]
 
