@@ -5,7 +5,7 @@ export default function RoommateCard({
     preferredGender,
     smoke,
 }:{
-    id:number;
+    id: string;
     bio: string;
     budget: number;
     preferredGender: 'male' | 'female' | 'other' | 'no preference';

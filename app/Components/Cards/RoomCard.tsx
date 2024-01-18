@@ -18,9 +18,9 @@ export default function RoomCard ({
     amount: number;
     gender: 'male' | 'female' | 'other' | 'no preference';
     smoking: 'allowed' | 'not allowed',
-    id: number;
+    id: string;
     credit: number;
-    roomId: number;
+    roomId: string;
 }) {
     return (
         <>

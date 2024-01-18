@@ -3,10 +3,14 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import bcrypt from 'bcrypt';
+
+import { signIn } from '@/auth';
+import { AuthError } from 'next-auth';
 
 // user type validation 
 const UserFormSchema = z.object({
-    id: z.number(),
+    id: z.string(),
     email: z.string({
         invalid_type_error: "Please provide a proper email"
     }),
@@ -23,6 +27,8 @@ const UserFormSchema = z.object({
 const CreateUserForm = UserFormSchema.omit({ id: true});
 const UpdateUserForm = UserFormSchema.omit({ id: true});
 
+
+
 export type UserState = {
     errors?: {
       email?: string[];
@@ -35,6 +41,26 @@ export type UserState = {
     };
     message?: string | null;
   };
+
+export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData
+    ) {
+    try {
+        await signIn('credentials', formData)
+    } catch (error) {
+        console.log("authentication error: ", error)
+        if (error instanceof AuthError) {
+            switch (error.type) {
+              case 'CredentialsSignin':
+                return 'Invalid credentials.';
+              default:
+                return 'Something went wrong.';
+            }
+        }
+        throw error;
+    }
+}
 
 export async function createUserForm( prevState: UserState, formData: FormData) {
     const validatedFields = CreateUserForm.safeParse({
@@ -58,9 +84,10 @@ export async function createUserForm( prevState: UserState, formData: FormData) 
     // if receive an error possibly might be bc string literals aren't wrapped in single quotes for strings
 
     try {
+        const hashedPassword = await bcrypt.hash(password, 10);
         await sql`
         INSERT INTO users (email, password, firstname, lastname, gender, age)
-        VALUES (${email}, ${password}, ${firstname}, ${lastname}, ${gender}, ${age})
+        VALUES (${email}, ${hashedPassword}, ${firstname}, ${lastname}, ${gender}, ${age})
         `
     } catch (error) {
         console.log("error creating a user: ", error);
@@ -97,11 +124,12 @@ export async function updateUserForm(
     const { email, password, firstname, lastname, gender, age } = validatedFields.data;
     
     try {
+        const hashedPassword = await bcrypt.hash(password, 10);
         await sql`
             UPDATE users
             SET 
             email = ${email},
-            password = ${password},
+            password = ${hashedPassword},
             firstname = ${firstname},
             lastname = ${lastname},
             gender = ${gender},
@@ -118,7 +146,7 @@ export async function updateUserForm(
     
 }
 
-export async function deleteUser(id: number) {
+export async function deleteUser(id: string) {
    try {
         await sql`DELETE FROM users WHERE id = ${id}`
         // revalidatePath('');

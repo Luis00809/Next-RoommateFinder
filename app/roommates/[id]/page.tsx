@@ -3,7 +3,7 @@ import RoommateCard from "@/app/Components/Cards/RoommateCard";
 
 import { getOneRoommate } from "@/app/lib/data";
 
-export default async function OneRoommate({params}: {params: { id: number}}) {
+export default async function OneRoommate({params}: {params: { id: string}}) {
     const id = params.id
     const userWithRoommateForm = await getOneRoommate(id);
     

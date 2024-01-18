@@ -1,5 +1,5 @@
 export type User = { 
-    id: number;
+    id: string;
     email: string;
     password: string;
     firstname: string;
@@ -10,23 +10,23 @@ export type User = {
 }
 
 export type RoommateForm = {
-    id: number;
+    id: string;
     bio: string;
     budget: number;
     preferredgender: 'male' | 'female' | 'other' | 'no preference';
     smokes: 'no' | 'yes';
-    roommateid: number;
+    roommateid: string;
 }
 
 export type Room = {
-    id: number;
+    id: string;
     address: string;
     description: string;
     creditscore: number;
     rent: number;
     smoking: 'allowed' | 'not allowed'
     gender: 'male' | 'female' | 'other' | 'no preference';
-    roomid: number;
+    roomid: string;
 }
 
 export type UserWithRoommateForm = User & RoommateForm;

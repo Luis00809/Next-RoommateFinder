@@ -55,13 +55,13 @@ export default function RoomForm(){
                     <div className="form-control">
                         <label className="label cursor-pointer">
                             <span className="label-text">Yes</span> 
-                            <input type="radio" name="smoking" value='allowed' className="radio checked:bg-red-500" checked />
+                            <input type="radio" name="smoking" value='allowed' className="radio checked:bg-red-500" defaultChecked />
                         </label>
                         </div>
                         <div className="form-control">
                         <label className="label cursor-pointer">
                             <span className="label-text">no</span> 
-                            <input type="radio" name="smoking" value='not allowed' className="radio checked:bg-blue-500" checked />
+                            <input type="radio" name="smoking" value='not allowed' className="radio checked:bg-blue-500"  />
                         </label>
                     </div>
 
@@ -83,7 +83,7 @@ export default function RoomForm(){
                         <label htmlFor="roomid" className="form-control w-full max-w-xs">
                         roomID: 
                         </label>
-                        <input type='number' id='roomid' name='roomid' className="input input-bordered w-full max-w-xs" />
+                        <input type='text' id='roomid' name='roomid' className="input input-bordered w-full max-w-xs" />
                         <button type="submit" className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Create</button>
 
                         <div>
