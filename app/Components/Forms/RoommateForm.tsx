@@ -37,13 +37,13 @@ export default function RoommateForm(){
                     <div className="form-control">
                         <label className="label cursor-pointer">
                             <span className="label-text">Yes</span> 
-                            <input type="radio" name="smokes" value='yes' className="radio checked:bg-red-500" checked />
+                            <input type="radio" name="smokes" value='yes' className="radio checked:bg-red-500" defaultChecked />
                         </label>
                         </div>
                         <div className="form-control">
                         <label className="label cursor-pointer">
                             <span className="label-text">no</span> 
-                            <input type="radio" name="smokes" value='no' className="radio checked:bg-blue-500" checked />
+                            <input type="radio" name="smokes" value='no' className="radio checked:bg-blue-500" />
                         </label>
                     </div>
 
