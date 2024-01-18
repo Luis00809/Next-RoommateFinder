@@ -14,7 +14,7 @@ export default function UserCard({
     lastN: string;
     gender: 'male' | 'female' | 'other';
     age: number;
-    id: number;
+    id: string;
     email: string;
 }){
     return (

@@ -2,7 +2,7 @@ import RoomCard from "@/app/Components/Cards/RoomCard"
 import { getOneRoom } from "@/app/lib/data";
 
 
-export default async function OneRoom({params}: {params: { id: number}}) {
+export default async function OneRoom({params}: {params: { id: string}}) {
     const id = params.id
     const room = await getOneRoom(id);
     

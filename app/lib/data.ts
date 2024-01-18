@@ -32,7 +32,7 @@ export async function fetchUsers() {
 };
 
 // fetch a User
-export async function getOneUser(id: number) {
+export async function getOneUser(id: string) {
     noStore();
     try {
         const data = await sql<User>`
@@ -66,7 +66,7 @@ export async function getRoooms() {
 };
 
 // fetch a room
-export async function getOneRoom(id: number) {
+export async function getOneRoom(id: string) {
     try {
         const data = await sql<Room>`
         SELECT r.*, u.* FROM rooms r LEFT JOIN users u ON r.roomId = u.id WHERE r.id = ${id}
@@ -102,7 +102,7 @@ export async function fetchRoommates() {
 };
 
 // get one roommate
-export async function getOneRoommate(id: number): Promise<UserWithRoommateForm | null> {
+export async function getOneRoommate(id: string): Promise<UserWithRoommateForm | null> {
     try {
         const data = await sql<any>`
         SELECT 
