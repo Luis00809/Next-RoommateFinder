@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { getUserId } from "@/app/api/auth/[...nextauth]/nextauth";
+// import { getUserId } from "@/app/api/auth/[...nextauth]/nextauth";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 
