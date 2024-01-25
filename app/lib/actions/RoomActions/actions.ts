@@ -49,12 +49,12 @@ export type RoomState = {
 }
 
 export async function createRoomForm(prevState: RoomState, formData: FormData) {
-    const session = await getServerSession();
-    const userId = session?.user?.id;
-    console.log(userId);
-    if (!userId) {
-        return new NextResponse("Unauthorized", { status: 401 });
-    }
+    // const session = await getServerSession();
+    // const userId = session?.user?.id;
+    // console.log(userId);
+    // if (!userId) {
+    //     return new NextResponse("Unauthorized", { status: 401 });
+    // }
     
     const validatedFields = CreateRoom.safeParse({
         address: formData.get('address'),
