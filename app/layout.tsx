@@ -22,6 +22,7 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions);
   const user = session?.user;
+  console.log(user);
 
   return (
     <html lang="en">

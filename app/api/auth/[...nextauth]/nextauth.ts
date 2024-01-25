@@ -15,9 +15,9 @@ export const authOptions: AuthOptions = {
                     label: 'email',
                     type: "email"
                 },
-                id: {
-                    label: 'id',
-                    type: 'text'
+                password: {
+                    label: 'password',
+                    type: 'password'
                 }
             },
             authorize: async (credentials): Promise<User | null> => {
@@ -25,11 +25,11 @@ export const authOptions: AuthOptions = {
                     throw new Error("Credentials not supplied in the signIn request");
                   }
                   const parsedCredentials = z
-                  .object({ email: z.string().email(), password: z.string().min(6) })
+                  .object({ email: z.string().email(), password: z.string().min(6),})
                   .safeParse(credentials);
 
                   if (parsedCredentials.success) {
-                    const { email, password } = parsedCredentials.data;
+                    const { email, password} = parsedCredentials.data;
                     const user = await getUser(email);
 
                     if (!user) {
@@ -39,7 +39,9 @@ export const authOptions: AuthOptions = {
             
                     const passwordsMatch = await bcrypt.compare(password, user.password);
         
-                    if(passwordsMatch) return user;
+                    if(passwordsMatch){
+                        return {...user, id: user.id}
+                    }
                     console.log('Invalid credentials');
                     return null
                 }
@@ -57,13 +59,14 @@ export const authOptions: AuthOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
-              token.id = parseInt(user.id);
+              token.id = user.id;
             }
             return token;
           },
           async session({ session, user, token }) {
             // Let the frontend see the user ID
             session.user.id = token.id as string;
+            console.log('Session User ID: ', session.user.id);
             return session;
           },
     }
