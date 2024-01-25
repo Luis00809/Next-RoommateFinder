@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import NavLinks from './NavLinks';
-import { signOut } from '@/auth';
+// import { signOut } from '@/auth';
 
 
 export default function Navbar() {
@@ -12,7 +12,7 @@ export default function Navbar() {
             <div>
                 <NavLinks />
             </div>
-            <div>
+            {/* <div>
                 <form
                     action={async () => {
                         'use server';
@@ -23,7 +23,7 @@ export default function Navbar() {
                         <div className="hidden md:block">Sign Out</div>
                     </button>
                 </form>
-            </div>
+            </div> */}
 
         </div>
     )
