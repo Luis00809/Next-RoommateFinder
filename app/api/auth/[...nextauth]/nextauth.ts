@@ -83,8 +83,8 @@ async function getUser(email: string): Promise<User | null> {
     }
 };
 
-export async function getUserId() {
-    const session = await getServerSession(authOptions);
-    return session?.user?.id;
-  }
+// export async function getUserId() {
+//     const session = await getServerSession(authOptions);
+//     return session?.user?.id;
+//   }
   
