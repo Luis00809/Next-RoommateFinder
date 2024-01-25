@@ -3,6 +3,10 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+// import { getUserId } from "@/app/api/auth/[...nextauth]/nextauth";
+import { NextRequest, NextResponse } from "next/server";
+import { getServerSession } from "next-auth/next";
+
 
 // room type validation
 const RoomSchema = z.object({
@@ -45,6 +49,13 @@ export type RoomState = {
 }
 
 export async function createRoomForm(prevState: RoomState, formData: FormData) {
+    // const session = await getServerSession();
+    // const userId = session?.user?.id;
+    // console.log(userId);
+    // if (!userId) {
+    //     return new NextResponse("Unauthorized", { status: 401 });
+    // }
+    
     const validatedFields = CreateRoom.safeParse({
         address: formData.get('address'),
         description: formData.get('description'),

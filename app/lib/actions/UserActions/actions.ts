@@ -5,8 +5,8 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
 
-import { signIn } from '@/auth';
-import { AuthError } from 'next-auth';
+import { signIn } from 'next-auth/react';
+import AuthError from "next-auth"
 
 // user type validation 
 const UserFormSchema = z.object({
@@ -42,23 +42,32 @@ export type UserState = {
     message?: string | null;
   };
 
+//   refactor later to use the userform
 export async function authenticate(
     prevState: string | undefined,
     formData: FormData
     ) {
-    try {
-        await signIn('credentials', formData)
-    } catch (error) {
-        console.log("authentication error: ", error)
-        if (error instanceof AuthError) {
-            switch (error.type) {
-              case 'CredentialsSignin':
-                return 'Invalid credentials.';
-              default:
-                return 'Something went wrong.';
+    const email = formData.get('email') || '';
+    const password = formData.get('password') || '';
+    const redirectUrl = '/dashboard';
+
+    if (typeof window !== 'undefined') {
+        try {
+            await signIn('credentials', { email, password, redirect: true, callbackUrl: redirectUrl })
+        } catch (error) {
+            console.log("authentication error: ", error)
+            if (error instanceof AuthError) {
+                switch (error) {
+                    case 'CredentialsSignin':
+                        return 'Invalid credentials.';
+                    default:
+                        return 'Something went wrong.';
+                }
             }
+            throw error;
         }
-        throw error;
+    } else {
+        console.log('Cannot perform sign in operation on server side.');
     }
 }
 
