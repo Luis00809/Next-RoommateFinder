@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import GetUserId from '@/app/Components/testId';
+
 
 // roommateform type validation
 const RoommateFormSchema = z.object({
@@ -15,8 +17,8 @@ const RoommateFormSchema = z.object({
     roommateid: z.string(),
 });
 
-const CreateRoommateForm = RoommateFormSchema.omit({ id: true});
-const UpdateRoommateForm = RoommateFormSchema.omit({ id: true});
+const CreateRoommateForm = RoommateFormSchema.omit({ id: true, roommateid: true});
+const UpdateRoommateForm = RoommateFormSchema.omit({ id: true, roommateid: true});
 
 export type RoommateState = {
     errors?: {
@@ -31,6 +33,8 @@ export type RoommateState = {
   };
 
 export async function createRoommateForm( prevState: RoommateState, formData: FormData) {
+    const roommateId = await GetUserId()
+
     const validatedFields = CreateRoommateForm.safeParse({
         bio: formData.get('bio'),
         budget: formData.get('budget'),
@@ -46,12 +50,12 @@ export async function createRoommateForm( prevState: RoommateState, formData: Fo
           };
     };
 
-    const { bio, budget, preferredgender, smokes, roommateid } = validatedFields.data;
+    const { bio, budget, preferredgender, smokes } = validatedFields.data;
 
     try {
         await sql`
         INSERT INTO roommateforms (bio, budget, preferredgender, smokes, roommateid)
-        VALUES (${bio}, ${budget}, ${preferredgender}, ${smokes}, ${roommateid})
+        VALUES (${bio}, ${budget}, ${preferredgender}, ${smokes}, ${roommateId})
         `
     } catch (error) {
         console.log("error creating roommate form: ", error);
@@ -70,12 +74,13 @@ export async function updateRoommateForm(
     prevState: RoommateState,
     formData: FormData,
 ) {
+    const roommateId = await GetUserId ();
+
     const validatedFields = UpdateRoommateForm.safeParse({
         bio: formData.get('bio'),
         budget: formData.get('budget'),
         preferredgender: formData.get('preferredgender'),
         smokes: formData.get('smoked'),
-        roommateid: formData.get('roommateid')
     })
 
     if (!validatedFields.success) {
@@ -85,12 +90,12 @@ export async function updateRoommateForm(
           };
     };
 
-    const { bio, budget, preferredgender, smokes, roommateid } = validatedFields.data;
+    const { bio, budget, preferredgender, smokes } = validatedFields.data;
 
     try {
         await sql`
         UPDATE roommateforms
-        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredgender}, smokes = ${smokes}, roommateid = ${roommateid}
+        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredgender}, smokes = ${smokes}, roommateid = ${roommateId}
         WHERE id = ${id}
         `
     } catch (error) {
