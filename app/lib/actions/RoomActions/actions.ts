@@ -3,9 +3,10 @@ import { z } from 'zod';
 import { sql } from '@vercel/postgres';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-// import { getUserId } from "@/app/api/auth/[...nextauth]/nextauth";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
+
+import GetUserId from '@/app/Components/testId';
 
 
 // room type validation
@@ -32,8 +33,8 @@ const RoomSchema = z.object({
     roomid: z.string()
 });
 
-const CreateRoom = RoomSchema.omit({ id: true });
-const UpdateRoom = RoomSchema.omit({ id: true });
+const CreateRoom = RoomSchema.omit({ id: true, roomid: true });
+const UpdateRoom = RoomSchema.omit({ id: true, roomid: true });
 
 export type RoomState = {
     errors?: {
@@ -49,12 +50,8 @@ export type RoomState = {
 }
 
 export async function createRoomForm(prevState: RoomState, formData: FormData) {
-    // const session = await getServerSession();
-    // const userId = session?.user?.id;
-    // console.log(userId);
-    // if (!userId) {
-    //     return new NextResponse("Unauthorized", { status: 401 });
-    // }
+    const userId = await GetUserId();
+
     
     const validatedFields = CreateRoom.safeParse({
         address: formData.get('address'),
@@ -63,7 +60,6 @@ export async function createRoomForm(prevState: RoomState, formData: FormData) {
         rent: formData.get('rent'),
         smoking: formData.get('smoking'),
         gender: formData.get('gender'),
-        roomid: formData.get('roomid')
     });
 
     if (!validatedFields.success) {
@@ -73,12 +69,12 @@ export async function createRoomForm(prevState: RoomState, formData: FormData) {
           };
     }
 
-    const { address, description, creditscore, rent, smoking, gender, roomid } = validatedFields.data;
+    const { address, description, creditscore, rent, smoking, gender} = validatedFields.data;
 
     try {
         await sql`
         INSERT INTO rooms (address, description, creditscore, rent, smoking, gender, roomid )
-        VALUES (${address}, ${description}, ${creditscore}, ${rent}, ${smoking}, ${gender}, ${roomid})
+        VALUES (${address}, ${description}, ${creditscore}, ${rent}, ${smoking}, ${gender}, ${userId})
         `
     } catch (error) {
         console.log('error creating room form: ', error);
