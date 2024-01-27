@@ -93,6 +93,8 @@ export async function updateRoomForm(
     prevState: RoomState,
     formData: FormData,
 ) {
+    const userId = await GetUserId();
+
     const validatedFields = UpdateRoom.safeParse({
         address: formData.get('address'),
         description: formData.get('description'),
@@ -100,7 +102,6 @@ export async function updateRoomForm(
         rent: formData.get('rent'),
         smoking: formData.get('smoking'),
         gender: formData.get('gender'),
-        roomid: formData.get('roomid')
     });
 
     if (!validatedFields.success) {
@@ -110,12 +111,12 @@ export async function updateRoomForm(
         }
     }
 
-    const { address, description, creditscore, rent, smoking, gender, roomid } = validatedFields.data;
+    const { address, description, creditscore, rent, smoking, gender } = validatedFields.data;
 
     try {
         await sql`
         UPDATE rooms
-        SET address = ${address}, description = ${description}, creditscore = ${creditscore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}, roomid = ${roomid}
+        SET address = ${address}, description = ${description}, creditscore = ${creditscore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}, roomid = ${userId}
         WHERE id = ${id}
         `
     } catch (error) {
