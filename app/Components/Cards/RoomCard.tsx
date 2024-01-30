@@ -1,6 +1,3 @@
-// would need to make smoking an if statement as it is different between forms and rooms
-// same for gender as form and room are preffered genders while users is their gender
-
 import Link from "next/link";
 
 export default function RoomCard ({

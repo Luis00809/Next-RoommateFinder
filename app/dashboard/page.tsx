@@ -5,6 +5,8 @@ import GetUserId from '@/app/Components/testId';
 import RoomCard from "../Components/Cards/RoomCard";
 import {getOneRoommate} from "@/app/lib/data";
 import RoommateCard from '../Components/Cards/RoommateCard';
+import UpdateRoomModal from "../Components/Modal/UpdateRoomModal"
+
 
 export default async function Dashboard() {
     const userId = await GetUserId();
@@ -14,6 +16,7 @@ export default async function Dashboard() {
     
     return (
         <>
+            
             <div>
                 <h2>Post a room: </h2>
                 <RoomForm />
@@ -22,12 +25,22 @@ export default async function Dashboard() {
             </div>
             <div>
                 <h2>Your rooms: </h2>
+                {/* will pass in the same info into the updateRoomModal so that if it is clicked then display the model */}
                 {rooms?.map(room => (
-                    <RoomCard key={room.id}
+                    <div>
+                        <RoomCard key={room.id}
                     title={room.address} about={room.description} 
                     amount={room.rent} gender={room.gender}
                     smoking={room.smoking} id={room.id}
                     credit={room.creditscore} roomId={room.roomid}  />
+                    
+                    <UpdateRoomModal key={room.id}
+                    title={room.address} about={room.description} 
+                    amount={room.rent} gender={room.gender}
+                    smoking={room.smoking} id={room.id}
+                    credit={room.creditscore} roomId={room.roomid} />
+                    </div>
+
                 ))}
             </div>
             <div>
