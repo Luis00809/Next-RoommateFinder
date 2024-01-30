@@ -51,6 +51,21 @@ export async function getOneUser(id: string) {
     }
 };
 
+export async function getUsersRooms(roomId: string){
+    noStore();
+    try {
+        const data = await sql<Room>`
+            SELECT * FROM rooms
+            WHERE rooms.roomid = ${roomId};
+
+        `
+        return data.rows;
+    } catch (error) {
+        console.log("Getting the user's rooms error: ", error) 
+        
+    }
+}
+
 
 // fetch rooms
 export async function getRoooms() {
