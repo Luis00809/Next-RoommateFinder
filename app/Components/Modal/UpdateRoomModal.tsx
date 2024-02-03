@@ -8,7 +8,7 @@
 
 import { createRoomForm } from "@/app/lib/actions/RoomActions/actions";
 import { useFormState } from 'react-dom';
-import RoomCard from "../Cards/RoomCard";
+import  updateRoom from '../Forms/UpdateForm';
 
 export default function UpdateRoomModal({ title,
     about,
@@ -38,9 +38,10 @@ export default function UpdateRoomModal({ title,
             <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                    <div>
-                        <RoomCard title={title} about={about} amount={amount}
-                        gender={gender} smoking={smoking} id={id} 
-                        credit={credit} roomId={roomId}/>
+                   {updateRoom({ idRoom: id, title: title, about: about, 
+                gender: gender, amount: amount, smoking: smoking, credit: credit,
+                roomId: roomId })}
+
                    </div>
                     <div className="modal-action">
                         <form method="dialog">
