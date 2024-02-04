@@ -94,8 +94,6 @@ export async function updateRoomForm(
     prevState: RoomState,
     formData: FormData,
 ) {
-    // const userId = await GetUserId();
-    console.log("room id: ", id);
     const validatedFields = UpdateRoom.safeParse({
         address: formData.get('address'),
         description: formData.get('description'),
@@ -125,12 +123,12 @@ export async function updateRoomForm(
         
     }
 
-    return {
-        ...prevState,
-        message: 'Room updated successfully'
-    }
-    // revalidatePath('');
-    // redirect('');
+    // return {
+    //     ...prevState,
+    //     message: 'Room updated successfully'
+    // }
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
 }
 
 export async function deleteRoomForm(id: string) {
