@@ -6,6 +6,8 @@ import RoomCard from "../Components/Cards/RoomCard";
 import {getOneRoommate} from "@/app/lib/data";
 import RoommateCard from '../Components/Cards/RoommateCard';
 import UpdateRoomModal from "../Components/Modal/UpdateRoomModal"
+import UpdateRoommateForm from "@/app/Components/Forms/UpdateRoommateForm";
+import UpdateRoommateModal from "@/app/Components/Modal/UpdateRoommateModal";
 
 
 export default async function Dashboard() {
@@ -46,11 +48,14 @@ export default async function Dashboard() {
             <div>
                 <h2>Your RoommateForm:</h2>
                 
-                { userWithRoommateForm && <RoommateCard key={userWithRoommateForm.roommateid} 
+                { userWithRoommateForm && <RoommateCard 
                 id={userWithRoommateForm.roommateid} budget={userWithRoommateForm.budget} 
                 bio={userWithRoommateForm.bio} preferredGender={userWithRoommateForm.preferredgender} 
                 smoke={userWithRoommateForm.smokes} />}
 
+                { userWithRoommateForm && <UpdateRoommateModal budget={userWithRoommateForm.budget} 
+                bio={userWithRoommateForm.bio} preferredGender={userWithRoommateForm.preferredgender} 
+                smoke={userWithRoommateForm.smokes} roommateId={userWithRoommateForm.id} />}
             </div>
         </>
     )

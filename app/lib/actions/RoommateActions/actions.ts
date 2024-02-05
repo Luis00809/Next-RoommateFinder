@@ -80,7 +80,7 @@ export async function updateRoommateForm(
         bio: formData.get('bio'),
         budget: formData.get('budget'),
         preferredgender: formData.get('preferredgender'),
-        smokes: formData.get('smoked'),
+        smokes: formData.get('smokes'),
     })
 
     if (!validatedFields.success) {
@@ -95,7 +95,7 @@ export async function updateRoommateForm(
     try {
         await sql`
         UPDATE roommateforms
-        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredgender}, smokes = ${smokes}, roommateid = ${roommateId}
+        SET bio = ${bio}, budget =${budget}, preferredgender = ${preferredgender}, smokes = ${smokes}
         WHERE id = ${id}
         `
     } catch (error) {
@@ -103,8 +103,8 @@ export async function updateRoommateForm(
         
     }
 
-    // revalidatePath('');
-    // redirect('');
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
 
 }
 
