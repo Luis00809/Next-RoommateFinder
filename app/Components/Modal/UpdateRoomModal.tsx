@@ -1,13 +1,8 @@
 "use client"
-// will put this component on the room card component and set a true or false boolean to display it
-// going to need to pass in the room id 
-// need the getRoom query 
-// set default values to that rooms data 
-// then need to use the updateRoom function on submit to update that room which would require the rooms Id
-// revalidate the page
 
-import { createRoomForm } from "@/app/lib/actions/RoomActions/actions";
 import  UpdateRoom from '../Forms/UpdateForm';
+import React, { useState } from 'react';
+
 
 export default function UpdateRoomModal({ title,
     about,
@@ -28,24 +23,34 @@ export default function UpdateRoomModal({ title,
     roomId: string;}) {
 
     const modalId = `modal_id_${id}`
+    const [ isOpen, setIsOpen ] = useState(false);
 
     return (
         <div>
             {/* Open the modal using document.getElementById('ID').showModal() method */}
             {/* each modal should have its own id */}
-            <button className="btn" onClick={()=>(document.getElementById(modalId) as HTMLDialogElement)?.showModal()}>open modal</button>
-            <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
+            <button className="btn" onClick={()=> setIsOpen(true)}>open modal</button>
+            <dialog id={modalId} className={`modal modal-bottom sm:modal-middle ${isOpen ? 'modal-open' : ''}`}>
                 <div className="modal-box">
                    <div>
-                   {UpdateRoom({ idRoom: id, title: title, about: about, 
-                gender: gender, amount: amount, smoking: smoking, credit: credit,
-                roomId: roomId })}
+                    <UpdateRoom 
+                        idRoom={id}
+                        title={title}
+                        about = {about}
+                        gender = {gender}
+                        amount = {amount}
+                        smoking = {smoking}
+                        credit = {credit}
+                        roomId = {roomId}
+                        onSubmit = {() => setIsOpen(false)}
+                    />
+                   
 
                    </div>
                     <div className="modal-action">
                         <form method="dialog">
                             {/* if there is a button in form, it will close the modal */}
-                            <button className="btn">Close</button>
+                            <button onClick={() => setIsOpen(false)} className="btn">Close</button>
                         </form>
                     </div>
                 </div>

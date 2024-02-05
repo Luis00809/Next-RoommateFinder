@@ -12,16 +12,18 @@ export default function UpdateRoom(
         smoking,
         credit,
         roomId,
-        title
+        title,
+        onSubmit,
     }:{
-        idRoom:string,
-        about: string,
-        amount: number,
+        idRoom:string;
+        about: string;
+        amount: number;
         gender: 'male' | 'female' | 'other' | 'no preference';
         smoking: 'allowed' | 'not allowed';
         credit: number;
         roomId: string;
         title: string;
+        onSubmit: () => void;
     }){
     const initialState = { message: null, errors: {}};
     const updateRoomWithId = updateRoomForm.bind(null, idRoom);
@@ -30,7 +32,7 @@ export default function UpdateRoom(
 
     return (
         <div>
-            <form action={dispatch} >
+            <form action={dispatch} onSubmit={onSubmit} >
                     <div className="card card-compact w-96 bg-base-100 shadow-xl">
                         
                     <label htmlFor="address" className="form-control w-full max-w-xs">
