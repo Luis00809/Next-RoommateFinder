@@ -29,14 +29,14 @@ export default async function Dashboard() {
                 <h2>Your rooms: </h2>
                 {/* will pass in the same info into the updateRoomModal so that if it is clicked then display the model */}
                 {rooms?.map(room => (
-                    <div>
-                        <RoomCard key={room.id}
+                    <div key={room.id}>
+                        <RoomCard 
                     title={room.address} about={room.description} 
                     amount={room.rent} gender={room.gender}
                     smoking={room.smoking} id={room.id}
                     credit={room.creditscore} roomId={room.roomid}  />
                     
-                    <UpdateRoomModal key={room.id}
+                    <UpdateRoomModal 
                     title={room.address} about={room.description} 
                     amount={room.rent} gender={room.gender}
                     smoking={room.smoking} id={room.id}

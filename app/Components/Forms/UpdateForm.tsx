@@ -3,7 +3,7 @@ import { updateRoomForm } from "../../lib/actions/RoomActions/actions";
 import { useFormState } from 'react-dom';
 
 
-export default function updateRoom(
+export default function UpdateRoom(
     {
         idRoom,
         about,

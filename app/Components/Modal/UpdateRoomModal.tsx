@@ -7,8 +7,7 @@
 // revalidate the page
 
 import { createRoomForm } from "@/app/lib/actions/RoomActions/actions";
-import { useFormState } from 'react-dom';
-import  updateRoom from '../Forms/UpdateForm';
+import  UpdateRoom from '../Forms/UpdateForm';
 
 export default function UpdateRoomModal({ title,
     about,
@@ -38,7 +37,7 @@ export default function UpdateRoomModal({ title,
             <dialog id={modalId} className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                    <div>
-                   {updateRoom({ idRoom: id, title: title, about: about, 
+                   {UpdateRoom({ idRoom: id, title: title, about: about, 
                 gender: gender, amount: amount, smoking: smoking, credit: credit,
                 roomId: roomId })}
 
