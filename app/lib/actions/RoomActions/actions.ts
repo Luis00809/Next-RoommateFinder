@@ -80,6 +80,7 @@ export async function createRoomForm(prevState: RoomState, formData: FormData) {
         console.log('error creating room form: ', error);
         
     }
+
     return {
         ...prevState,
         message: 'Room created successfully'
@@ -93,8 +94,6 @@ export async function updateRoomForm(
     prevState: RoomState,
     formData: FormData,
 ) {
-    const userId = await GetUserId();
-
     const validatedFields = UpdateRoom.safeParse({
         address: formData.get('address'),
         description: formData.get('description'),
@@ -116,13 +115,20 @@ export async function updateRoomForm(
     try {
         await sql`
         UPDATE rooms
-        SET address = ${address}, description = ${description}, creditscore = ${creditscore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}, roomid = ${userId}
+        SET address = ${address}, description = ${description}, creditscore = ${creditscore}, rent = ${rent}, smoking = ${smoking}, gender = ${gender}
         WHERE id = ${id}
         `
     } catch (error) {
         console.log("failed to update room: ", error);
         
     }
+
+    // return {
+    //     ...prevState,
+    //     message: 'Room updated successfully'
+    // }
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
 }
 
 export async function deleteRoomForm(id: string) {
