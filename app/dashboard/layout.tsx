@@ -9,7 +9,7 @@ export default async function Layout({ children }: {children: ReactNode}){
 
     if(session === null) {
         redirect('/login')
-    }
+    } 
 
     return <>{children}</>
 }
