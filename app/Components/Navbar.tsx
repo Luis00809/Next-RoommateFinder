@@ -1,9 +1,13 @@
 import Link from 'next/link';
 import NavLinks from './NavLinks';
-// import { signOut } from '@/auth';
+import SignOut from '../Components/Buttons/SignOutBtn';
+import { authOptions } from "@/app/api/auth/[...nextauth]/nextauth";
+import { getServerSession } from "next-auth";
 
 
-export default function Navbar() {
+export default async function Navbar() {
+    const session = await getServerSession(authOptions);
+
     return (
         <div>
             <div className="flex-1">
@@ -12,18 +16,9 @@ export default function Navbar() {
             <div>
                 <NavLinks />
             </div>
-            {/* <div>
-                <form
-                    action={async () => {
-                        'use server';
-                        await signOut();
-                    }}
-                    >
-                    <button className="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
-                        <div className="hidden md:block">Sign Out</div>
-                    </button>
-                </form>
-            </div> */}
+            <div>
+                { session !== null && <SignOut />}
+            </div>
 
         </div>
     )
