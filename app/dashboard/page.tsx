@@ -9,6 +9,9 @@ import UpdateRoomModal from "../Components/Modal/UpdateRoomModal"
 import UpdateRoommateForm from "@/app/Components/Forms/UpdateRoommateForm";
 import UpdateRoommateModal from "@/app/Components/Modal/UpdateRoommateModal";
 
+import DeleteCard from "@/app/Components/Buttons/DeleteBtn";
+
+
 
 export default async function Dashboard() {
     const userId = await GetUserId();
@@ -41,7 +44,11 @@ export default async function Dashboard() {
                     amount={room.rent} gender={room.gender}
                     smoking={room.smoking} id={room.id}
                     credit={room.creditscore} roomId={room.roomid} />
+
+                    <DeleteCard key={room.id} option="room" id={room.id} />
+
                     </div>
+
 
                 ))}
             </div>
@@ -56,6 +63,8 @@ export default async function Dashboard() {
                 { userWithRoommateForm && <UpdateRoommateModal budget={userWithRoommateForm.budget} 
                 bio={userWithRoommateForm.bio} preferredGender={userWithRoommateForm.preferredgender} 
                 smoke={userWithRoommateForm.smokes} roommateId={userWithRoommateForm.id} />}
+
+                { userWithRoommateForm && <DeleteCard key={userWithRoommateForm.id} option="roommate" id={userWithRoommateForm.id} />}
             </div>
         </>
     )
