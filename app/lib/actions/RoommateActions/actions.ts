@@ -61,12 +61,12 @@ export async function createRoommateForm( prevState: RoommateState, formData: Fo
         console.log("error creating roommate form: ", error);
         
     }
-    return {
-        ...prevState,
-        message: 'Form created successfully'
-    }
-    // revalidatePath('');
-    // redirect('');
+    // return {
+    //     ...prevState,
+    //     message: 'Form created successfully'
+    // }
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
 }
 
 export async function updateRoommateForm(
@@ -111,7 +111,7 @@ export async function updateRoommateForm(
 export async function deleteRoommateForm(id:string) {
     try {
         await sql`DELETE FROM roommateforms WHERE id = ${id}`
-        // revalidatePath('')
+        revalidatePath('/dashboard');
         return {message: 'Deleted roommate form'}
     } catch (error) {
         console.log('failed to delte roommate form');

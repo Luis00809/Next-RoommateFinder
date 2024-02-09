@@ -81,12 +81,12 @@ export async function createRoomForm(prevState: RoomState, formData: FormData) {
         
     }
 
-    return {
-        ...prevState,
-        message: 'Room created successfully'
-    }
-    // revalidatePath('');
-    // redirect('');
+    // return {
+    //     ...prevState,
+    //     message: 'Room created successfully'
+    // }
+    revalidatePath('/dashboard');
+    redirect('/dashboard');
 }
 
 export async function updateRoomForm(
@@ -133,9 +133,9 @@ export async function updateRoomForm(
 
 export async function deleteRoomForm(id: string) {
     try {
-        await sql`DELETE FROM room WHERE id = ${id}`;
-        // revalidatePath('')
-        return { message: 'Deletes room'};
+        await sql`DELETE FROM rooms WHERE id = ${id}`;
+        revalidatePath('/dashboard');
+        return { message: 'Deleted room'};
 
     } catch (error) {
         console.log('failed to delete room: ', error
