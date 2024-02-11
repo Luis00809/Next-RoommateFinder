@@ -1,12 +1,8 @@
 import Link from 'next/link';
 import NavLinks from './NavLinks';
-import SignOut from '../Components/Buttons/SignOutBtn';
-import { authOptions } from "@/app/api/auth/[...nextauth]/nextauth";
-import { getServerSession } from "next-auth";
 
 
 export default async function Navbar() {
-    const session = await getServerSession(authOptions);
 
     return (
         <div>
@@ -16,9 +12,9 @@ export default async function Navbar() {
             <div>
                 <NavLinks />
             </div>
-            <div>
+            {/* <div>
                 { session !== null && <SignOut />}
-            </div>
+            </div> */}
 
         </div>
     )
