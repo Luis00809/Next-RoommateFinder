@@ -20,15 +20,23 @@ export default function LoginForm() {
  };
 
  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    try {
-      await signIn('credentials', { email, password, redirect: false });
+  event.preventDefault();
+  const result = await signIn('credentials', { email, password, redirect: false });
+
+  // Check if the result is not undefined before proceeding
+  if (result) {
+    if (result.ok) {
       router.push('/dashboard');
-    } catch (error) {
-      console.log("authentication error: ", error);
+    } else {
+      // Handle the case where the sign-in was not successful
       setErrorMessage('Invalid credentials.');
     }
- };
+  } else {
+    // Handle the case where the result is undefined
+    setErrorMessage('An unknown error occurred.');
+  }
+};
+
 
  return (
     <form onSubmit={handleSubmit} className="space-y-3">

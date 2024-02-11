@@ -2,13 +2,10 @@
 import { signOut } from 'next-auth/react';
 
 
-export default async function SignOut(){
-    const handleSignOut = async () => {
-        try {
-            await signOut({ redirect: true, callbackUrl: "/" });
-        } catch (error) {
-            console.error('Sign out error', error);
-        }
+export default function SignOut() {
+    const handleSignOut = () => {
+      signOut({ redirect: true, callbackUrl: "/" })
+        .catch((error) => console.error('Sign out error', error));
     };
 
     return(
