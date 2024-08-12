@@ -68,7 +68,7 @@ export async function getUsersRooms(roomId: string){
 
 
 // fetch rooms
-export async function getRoooms() {
+export async function getRooms() {
     try {
         const data = await sql<Room>`
             SELECT * FROM rooms
