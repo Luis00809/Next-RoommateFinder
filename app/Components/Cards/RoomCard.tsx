@@ -21,22 +21,23 @@ export default function RoomCard ({
 }) {
     return (
         <>
-            <div className="card w-15 m-3 bg-indigo-500 shadow-xl">
-                {/* replace img element with built-in nextjs Image component */}
-                <figure></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Address: {title}</h2>
-                    <p>Description: {about}</p>
-                    <p>Rent: {amount}</p>
-                    <p>Preferred Gender: {gender}</p>
-                    <p>Smoking: {smoking}</p>
-                    <p>{id}</p>
-                    <p>Minimum Credit Score: {credit}</p>
-                    <p>room: {roomId}</p>
-
-                    <div className="card-actions justify-end">
-                    <Link href={`/rooms/${id}`}><button className="btn btn-primary">Visit Room</button></Link>
+            <div className="card w-full my-20 shadow-xl">
+                <div className="flex">
+                    <div className="w-1/2 ml-6">
+                        <h2 className="card-title">Address: {title}</h2>
+                        <p>Description: {about}</p>
+                        <p>Rent: {amount}</p>
+                        <p>Preferred Gender: {gender}</p>
+                        <p>Smoking: {smoking}</p>
+                        <p>Minimum Credit Score: {credit}</p>
                     </div>
+                    <div className="w-1/2 justify-center bg-red-50">
+                    {/* replace img element with built-in nextjs Image component */}
+                        <img className="rounded-lg w-full h-full" src="https://www.erfurt.com/fileadmin/user_upload/tipps-inspirationen/tipps-tricks/raumwirkung/Leerer-weisser-Raum_620x417px.jpg" alt="Shoes" />
+                    </div>
+                </div>
+                <div className="card-actions justify-end">
+                        <Link href={`/rooms/${id}`}><button className="btn btn-primary">Visit Room</button></Link>
                 </div>
             </div>
         </>
