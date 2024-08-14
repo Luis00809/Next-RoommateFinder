@@ -1,6 +1,6 @@
-import Link from "next/link";
 
-export default function RoomCard ({
+export default function RoomCard (
+    {
     title,
     about,
     amount,
@@ -21,9 +21,13 @@ export default function RoomCard ({
 }) {
     return (
         <>
-            <div className="card w-full my-20 shadow-xl">
+            <div className="card w-1/5 shadow-xl ">
+                <div className="w-full justify-center ">
+                    {/* replace img element with built-in nextjs Image component */}
+                        <img className="rounded-lg w-full h-full" src="https://www.erfurt.com/fileadmin/user_upload/tipps-inspirationen/tipps-tricks/raumwirkung/Leerer-weisser-Raum_620x417px.jpg" alt="Shoes" />
+                    </div>
                 <div className="flex">
-                    <div className="w-1/2 ml-6">
+                    <div className="w-full ml-6">
                         <h2 className="card-title">Address: {title}</h2>
                         <p>Description: {about}</p>
                         <p>Rent: {amount}</p>
@@ -31,14 +35,9 @@ export default function RoomCard ({
                         <p>Smoking: {smoking}</p>
                         <p>Minimum Credit Score: {credit}</p>
                     </div>
-                    <div className="w-1/2 justify-center bg-red-50">
-                    {/* replace img element with built-in nextjs Image component */}
-                        <img className="rounded-lg w-full h-full" src="https://www.erfurt.com/fileadmin/user_upload/tipps-inspirationen/tipps-tricks/raumwirkung/Leerer-weisser-Raum_620x417px.jpg" alt="Shoes" />
-                    </div>
+                   
                 </div>
-                <div className="card-actions justify-end">
-                        <Link href={`/rooms/${id}`}><button className="btn btn-primary">Visit Room</button></Link>
-                </div>
+               
             </div>
         </>
     )

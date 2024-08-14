@@ -1,21 +1,21 @@
 import RoomCard from '../Components/Cards/RoomCard';
 import { getRooms } from '../lib/data';
+import RoomCardGrid from '../Components/Cards/RoomCardGrid';
 
 export default async function Rooms() {
 
     const rooms = await getRooms();
-         
+        //   className='flex flex-wrap gap-4 justify-center '
     return (
         <>
             <h2>Rooms:</h2>
-            <div className='flex w-full justify-center'>
-                <div>
+            <div className='container'>
+                <div className='flex flex-wrap justify-center gap-4 '>
                     {rooms?.map(room => (
-                        <RoomCard key={room.id}
+                        <RoomCardGrid key={room.id}
                         title={room.address} about={room.description} 
-                        amount={room.rent} gender={room.gender}
-                        smoking={room.smoking} id={room.id}
-                        credit={room.creditscore} roomId={room.roomid}  />
+                        amount={room.rent} id={room.id}
+                        />
                     ))}
                 </div> 
             </div>
