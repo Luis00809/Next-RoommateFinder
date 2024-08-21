@@ -5,12 +5,11 @@ import clsx from 'clsx'
 import SignOut from '../Components/Buttons/SignOutBtn';
 
 import { useSession } from 'next-auth/react';
-import { MdHouse } from "react-icons/md";
 
 
 
 const links = [
-    {name: 'Dasboard', href: '/dashboard'},
+    {name: 'Dashboard', href: '/dashboard'},
     {name: 'Rooms', href: '/rooms'},
     {name: 'Roommates', href: '/roommates'},
 ]

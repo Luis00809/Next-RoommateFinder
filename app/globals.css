@@ -7,3 +7,19 @@ body {
 }
 
 
+.multi-line-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-break: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* desired number of lines */
+    -webkit-box-orient: vertical;
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    
+  }
+
