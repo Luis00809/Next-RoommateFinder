@@ -21,11 +21,8 @@ export default function RoomCard (
 }) {
     return (
         <>
-            <div className="card w-1/5 shadow-xl ">
-                <div className="w-full justify-center ">
-                    {/* replace img element with built-in nextjs Image component */}
-                        <img className="rounded-lg w-full h-full" src="https://www.erfurt.com/fileadmin/user_upload/tipps-inspirationen/tipps-tricks/raumwirkung/Leerer-weisser-Raum_620x417px.jpg" alt="Shoes" />
-                    </div>
+            <div className="card w-1/3 shadow-xl ">
+                
                 <div className="flex">
                     <div className="w-full ml-6">
                         <h2 className="card-title">Address: {title}</h2>
